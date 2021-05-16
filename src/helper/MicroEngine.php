@@ -71,7 +71,7 @@ class MicroEngine
     public static function getFileAccessPrefix()
     {
         if (self::isMicroEngine()) {
-            return implode('/', [request()->domain(), 'attachment', self::module(), self::getUniacid(), '']);
+            return implode('/', [request()->domain(), 'attachment', self::getModuleName(), self::getUniacid(), '']);
         } else {
             return implode('/', [request()->domain(), 'storage', '']);
         }
