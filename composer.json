@@ -11,6 +11,9 @@
     ],
     "minimum-stability": "stable",
     "autoload": {
+        "psr-4": {
+            "liang\\": "src"
+        },
         "files": [
             "src/helper.php"
         ]
