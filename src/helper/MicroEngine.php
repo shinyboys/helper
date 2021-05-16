@@ -59,7 +59,7 @@ class MicroEngine
     public static function getLocalStorageDir()
     {
         if (self::isMicroEngine()) {
-            return ATTACHMENT_ROOT . self::module() . '/' . self::getUniacid();
+            return ATTACHMENT_ROOT . self::getModuleName() . '/' . self::getUniacid();
         } else {
             return public_path() . 'storage';
         }
