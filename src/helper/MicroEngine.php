@@ -24,7 +24,7 @@ class MicroEngine
     /**
      * 获取微擎模块标识
      */
-    public static function module()
+    public static function getModuleName()
     {
         global $_W;
         return $_W['current_module']['name'] ?? '';
