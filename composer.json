@@ -1,6 +1,6 @@
 {
     "name": "shinyboys/helper",
-    "description": "wetp",
+    "description": "微擎 TP6.0 框架 微擎助手函数库",
     "type": "library",
     "license": "MIT",
     "authors": [
