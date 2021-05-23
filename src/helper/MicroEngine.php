@@ -54,6 +54,26 @@ class MicroEngine
     }
 
     /**
+     * 获取小程序appid和开发者密钥
+     */
+    public static function getMiniProgramConfig()
+    {
+        if (self::isMicroEngine()) {
+            global $_W;
+            return [
+                'appid'  => $_W['account']['key'],
+                'secret' => $_W['account']['secret'],
+            ];
+        } else {
+            return [];
+        }
+    }
+
+    // +----------------------------------------------------------------------
+    // | 文件存储相关
+    // +----------------------------------------------------------------------
+
+    /**
      * 获取本地文件存储目录(绝对路径)
      */
     public static function getLocalStorageDir()
@@ -74,6 +94,22 @@ class MicroEngine
             return implode('/', [request()->domain(), 'attachment', self::getModuleName(), self::getUniacid(), '']);
         } else {
             return implode('/', [request()->domain(), 'storage', '']);
+        }
+    }
+
+    /**
+     * 获取云存储文件存放目录
+     *
+     * @param string $prefix 自定义存放目录前缀
+     */
+    public static function getCloudStoragePath(string $prefix = 'storage')
+    {
+        if (self::isMicroEngine()) {
+            // 微擎
+            return implode('/', [self::getModuleName(), self::getUniacid(), date('Ymd')]);
+        } else {
+            // 独立版
+            return ($prefix ? $prefix . '/' : '') . date('Ymd');
         }
     }
 }
