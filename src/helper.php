@@ -7,6 +7,14 @@
 // +----------------------------------------------------------------------
 
 /**
+ * 对数据进行json_encode编码并且中文不转码
+ */
+function encode($data)
+{
+    return json_encode($data, JSON_UNESCAPED_UNICODE);
+}
+
+/**
  * 计算两点地理坐标之间的距离
  * 
  * @param  $longitude1 起点经度
